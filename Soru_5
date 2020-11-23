@@ -1,0 +1,18 @@
+def asal_sayi(n):
+    if n<2:
+        return False
+    for i in range (2,n,1):
+        if n%i==0:
+            return False
+    return True
+
+def superasal(n):
+    if len(str(n))==2 and asal_sayi(n)==True:
+        return True
+    if asal_sayi(n)==True:
+        return superasal(n//10)
+    return False
+
+for i in range(10001,100000,2):
+    if superasal(i)==True:
+        print(i)
